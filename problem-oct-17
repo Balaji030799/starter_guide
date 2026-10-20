@@ -1,0 +1,85 @@
+function countGreaterThanFive(arr) {
+  let count = 0;
+  for (let index = 0; index < arr.length; index++) {
+    const element = arr[index];
+    if (element > 5) {
+      count++;
+    }
+  }
+  return count;
+}
+
+function containsTarget(arr, target) {
+  for (let index = 0; index < arr.length; index++) {
+    const element = arr[index];
+    if (element === target) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function findTargetIndex(arr, target) {
+  for (let index = 0; index < arr.length; index++) {
+    const element = arr[index];
+    if (element === target) {
+      return index;
+    }
+  }
+  return -1;
+}
+function findFirstEvenIndex(arr) {
+  for (let index = 0; index < arr.length; index++) {
+    const element = arr[index];
+    if (element % 2 === 0) {
+      return index;
+    }
+  }
+  return -1;
+}
+
+function diagonalDifference(arr) {
+  let primary = 0;
+  let secondary = 0;
+  for (let index = 0; index < arr.length; index++) {
+    primary += arr[index][index + 0];
+    secondary += arr[index][arr.length - 1 - index];
+  }
+  return Math.abs(primary - secondary);
+}
+
+
+var largestAltitude = function(gain) {
+    let altitude = 0;
+    let maxAltitude = 0;
+
+    for (let i = 0; i < gain.length; i++) {
+        altitude += gain[i];
+
+        if (altitude > maxAltitude) {
+            maxAltitude = altitude;
+        }
+    }
+
+    return maxAltitude;
+};
+
+
+var firstLargestAlt = function(gain) {
+    let alt = 0;
+    let maxFirstAlt = 0;
+    let maxIndex = -1;
+
+    for (let index = 0; index < gain.length; index++) {
+        alt += gain[index];
+
+        if (alt > maxFirstAlt) {
+            maxFirstAlt = alt;
+            maxIndex = index;
+        }
+    }
+
+    return maxIndex;
+};
+
+

@@ -1,0 +1,4 @@
+const ma = new Map( );
+ma.set("s",3)
+ma.set("s",13)
+console.log(ma);

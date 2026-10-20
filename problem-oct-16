@@ -1,0 +1,57 @@
+function findMax(arr) {
+  let max = arr[0]; 
+  for(let i=1;i<arr.length;i++){
+   if(arr[i]>max){
+    max= arr[i];
+   }
+  }
+  return max;
+}
+
+function findSum(arr){
+    let sum = 0; 
+  for(let i=0;i<arr.length;i++){
+    sum += BigInt(arr[i]);
+   }
+  
+  return sum;
+}
+
+function findCountEven(arr){
+  let count=0;
+  for(let i =0; i<arr.length;i++){
+    if(arr[i]%2===0){
+      count +=1;
+    }
+  }
+  return count;
+}
+function compareTriplets(a, b) {
+    let arr = [0,0]
+for(let i=0;i<3;i++){
+   if(a[i]>b[i]){
+    arr[0]+=1;
+   }else if(a[i]<b[i]){
+    arr[1]+=1;
+   }
+}
+return arr;
+}
+let accounts = [[1,5],[7,3],[3,5]]
+// console.log(accounts.length)
+var maximumWealth = function (accounts) {
+    let arr;
+    for (let i = 0; i < accounts.length; i++) {
+        arr = new Array(accounts.length).fill(0);
+        for (let j = 0; j < accounts[i].length; j++) {  
+           arr[i] = arr[i]+accounts[i][j]
+        }
+    }
+
+
+    return Math.max(...arr, 0)
+};
+ console.log( maximumWealth(accounts));
+
+
+
