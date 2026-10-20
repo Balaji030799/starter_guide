@@ -1,4 +1,103 @@
-const ma = new Map( );
-ma.set("s",3)
-ma.set("s",13)
-console.log(ma);
+function containsDuplicate(arr) {
+  for (let index = 0; index < arr.length; index++) {
+    for (let j = index + 1; j < arr.length; j++) {
+      if (arr[index] === arr[j]) {
+        return true;
+      }
+    }
+  }
+}
+
+function containsDuplicateWithSet(arr) {
+  let set = new Set();
+  for (let index = 0; index < arr.length; index++) {
+    if (set.has(arr[index])) {
+      return true;
+    }
+    set.add(arr[index]);
+  }
+  return false;
+}
+
+function sockMerchant(n, ar) {
+  // Write your code here
+  const socks = {};
+  let pair = 0;
+  for (let index = 0; index < n; index++) {
+    socks[ar[index]] = socks[ar[index]] + 1 || 1;
+  }
+  for (let key in socks) {
+    pair += Math.floor(socks[key] / 2);
+  }
+}
+
+function sockMerchantWithSet(n, ar) {
+  const unmatched = new Set();
+  let pairs = 0;
+
+  for (let i = 0; i < n; i++) {
+    if (unmatched.has(ar[i])) {
+      pairs++;
+      unmatched.delete(ar[i]);
+    } else {
+      unmatched.add(ar[i]);
+    }
+  }
+
+  return pairs;
+}
+
+function mostFrequent(arr) {
+  const frequency = {};
+  let maxCount = 0;
+  let frequentElement;
+
+  for (let index = 0; index < arr.length; index++) {
+    const element = arr[index];
+    if (frequency[element]) {
+      frequency[element]++;
+    } else {
+      frequency[element] = 1;
+    }
+  }
+
+  for (const key in frequency) {
+    if (frequency[key] > maxCount) {
+      maxCount = frequency[key];
+      frequentElement = key;
+    }
+  }
+
+  return frequentElement;
+}
+
+var containsDuplicate = function (nums) {
+  let duplicate = false;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums.indexOf(nums[i]) === nums.lastIndexOf(nums[i])) {
+      duplicate = false;
+    } else {
+      duplicate = true;
+    }
+  }
+  return duplicate;
+};
+
+var containsDuplicate = function (nums) {
+  let duplicate = false;
+  for (let i = 0; i < nums.length; i++) {
+    let elementPresent = nums[i];
+    for (let j = i + 1; j < nums.length; j++) {
+      if (elementPresent === nums[j]) {
+        duplicate = true;
+        return duplicate;
+      }
+    }
+  }
+  return duplicate;
+};
+
+var containsDuplicate = function (nums) {
+  let set = new Set(nums);
+  return set.size === nums.length ? false : true;
+};

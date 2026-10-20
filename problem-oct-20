@@ -1,0 +1,84 @@
+function firstRepeated(arr) {
+  let uniqueSet = new Set();
+  for (let i = 0; i < arr.length; i++) {
+    if (uniqueSet.has(arr[i])) {
+      return arr[i];
+    }
+
+    uniqueSet.add(arr[i]);
+  }
+  return -1;
+}
+console.log(firstRepeated([1, 2, 3]));
+
+function matchingStrings(stringList, queries) {
+  // Write your code here
+  let matchStr = new Array(queries.length).fill(0);
+  for (let i = 0; i < stringList.length; i++) {
+    let query = stringList[i];
+    for (let j = 0; j < queries.length; j++) {
+      if (query === queries[j]) {
+        if (matchStr[j]) {
+          matchStr[j]++;
+        } else {
+          matchStr[j] = 1;
+        }
+      }
+    }
+  }
+
+  return matchStr;
+}
+matchingStrings(
+  [
+    "abcde",
+    "sdaklfj",
+    "asdjf",
+    "na",
+    "basdn",
+    "sdaklfj",
+    "asdjf",
+    "na",
+    "asdjf",
+    "na",
+    "basdn",
+    "sdaklfj",
+    "asdjf",
+  ],
+  ["abcde", "sdaklfj", "asdjf", "na", "basdn"],
+);
+var isAnagram = function (s, t) {
+  if (s.length !== t.length) return false;
+
+  let s1 = {};
+  let s2 = {};
+
+  for (let i = 0; i < s.length; i++) {
+    if (s1[s[i]]) {
+      s1[s[i]]++;
+    } else {
+      s1[s[i]] = 1;
+    }
+
+    if (s2[t[i]]) {
+      s2[t[i]]++;
+    } else {
+      s2[t[i]] = 1;
+    }
+  }
+
+  for (let key in s1) {
+    if (s1[key] !== s2[key]) {
+      return false;
+    }
+  }
+
+  return true;
+};
+console.log(isAnagram("anagram", "nagaram"));
+console.log(isAnagram("rat", "car"));
+
+var isAnagram = function (s, t) {
+  if (s.length !== t.length) return false;
+  return s.split("").sort().join("") === t.split("").sort().join("");
+};
