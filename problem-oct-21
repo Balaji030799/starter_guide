@@ -1,0 +1,52 @@
+function twoSum(target, array) {
+  for (let index = 0; index < array.length; index++) {
+    const a = array[index];
+    for (let j = index + 1; j < array.length; j++) {
+      const b = array[j];
+      if (target === a + b) {
+        return [index, j];
+      }
+    }
+  }
+
+  return -1;
+}
+
+function twoSumMap(target, array) {
+  let map = new Map();
+  for (let index = 0; index < array.length; index++) {
+    const complement = target - array[index];
+    if (map.has(complement)) {
+      return [map.get(complement), index];
+    }
+    map.set(array[index], index);
+  }
+  return -1;
+}
+
+function twoSumMap(target,array){
+    const map = new Map();
+    for (let index = 0; index < array.length; index++) {
+        const complement = target - array[index];
+        if(map.has(complement)){
+            return [  map.get(complement),index]
+        }
+        map.set(array[index],index)
+        
+    }
+}
+function twoStrings(s1, s2) {
+    // Write your code here
+let str1 = new Set();
+for (let index = 0; index < s1.length; index++) {
+ str1.add(s1[index])
+}
+for (let index = 0; index < s2.length; index++) {
+  if(str1.has(s2[index])){return 'YES'}
+
+}
+return 'NO';
+}
+
+
+
